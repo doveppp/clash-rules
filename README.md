@@ -10,10 +10,12 @@
 
 两个文件都是 `behavior: classical`、`format: text`，一行一条规则，写法同 Clash 的 rules。
 
+> 注意：`raw.githubusercontent.com` 在境内直连会被 RST，两个 provider 都要加 `proxy:` 让它走节点下载，否则规则集永远拉不下来。
+
 ```yaml
 rule-providers:
-  direct: {type: http, behavior: classical, format: text, url: "https://raw.githubusercontent.com/doveppp/clash-rules/main/direct.list", path: ./ruleset/direct.txt, interval: 86400}
-  proxy: {type: http, behavior: classical, format: text, url: "https://raw.githubusercontent.com/doveppp/clash-rules/main/proxy.list", path: ./ruleset/proxy.txt, interval: 86400}
+  direct: {type: http, behavior: classical, format: text, url: "https://raw.githubusercontent.com/doveppp/clash-rules/main/direct.list", path: ./ruleset/direct.txt, interval: 86400, proxy: "🚀 节点选择"}
+  proxy: {type: http, behavior: classical, format: text, url: "https://raw.githubusercontent.com/doveppp/clash-rules/main/proxy.list", path: ./ruleset/proxy.txt, interval: 86400, proxy: "🚀 节点选择"}
 
 rules:
   - RULE-SET,direct,🏠 私有网络
